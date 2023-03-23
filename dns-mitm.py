@@ -148,6 +148,10 @@ def init_listener():
         print("This script must be run as root if you want to listen " +
             "on port %d" % args.PORT)
         exit(1)
+    except OSError as e:
+        if re.match(".*Address already in use.*", str(e)):
+            print("Address already in use: try running on a different bind address/port - see help (-h)")
+            exit(0)
     return udps
 
 
