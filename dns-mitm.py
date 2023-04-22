@@ -152,8 +152,8 @@ def init_listener():
         if re.match(".*Address already in use.*", str(e)):
             print("Address already in use: try running on a different bind address/port - see help (-h)")
             exit(0)
-    else:
-        raise
+        else:
+            raise
     return udps
 
 
